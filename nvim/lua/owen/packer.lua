@@ -44,4 +44,6 @@ return require('packer').startup(function(use)
       }
   }
 
+  use 'preservim/nerdcommenter'
+
 end)

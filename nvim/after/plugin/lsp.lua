@@ -2,7 +2,31 @@ local lsp = require('lsp-zero')
 
 lsp.preset('recommended')
 
-lsp.configure('pyright')
+-- python
+lsp.configure('pyright', {
+    settings = {
+        python = {
+            analysis = {
+                autoSearchPaths = true,
+                useLibraryCodeForTypes = true,
+                -- Set the Python interpreter path
+                pythonPath = python_path
+            }
+        }
+    }
+})
+
+-- C/C++
+lsp.configure('clangd')
+
+-- ruby
+lsp.configure('solargraph', {
+    settings = {
+        solargraph = {
+            diagnostics = true
+        }
+    }
+})
 
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}

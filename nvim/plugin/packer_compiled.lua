@@ -99,6 +99,11 @@ _G.packer_plugins = {
     path = "/home/owen/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
+  nerdcommenter = {
+    loaded = true,
+    path = "/home/owen/.local/share/nvim/site/pack/packer/start/nerdcommenter",
+    url = "https://github.com/preservim/nerdcommenter"
+  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/home/owen/.local/share/nvim/site/pack/packer/start/nvim-cmp",
