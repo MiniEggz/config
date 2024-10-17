@@ -16,17 +16,32 @@ set $sm DP-1
 # LAPTOP
 set $bm eDP-1
 
+# set $wp1 = TODO
+# set $wp2 = TODO
+# set $wp3 = TODO
+# set $wp4 = TODO
 
 set $mod Mod4
 
+# set bg wallpaper
+exec --no-startup-id feh --bg-scale $wp3
+
 # set binds for screen lock
 bindsym $mod+Shift+z exec --no-startup-id i3lock -c 000000
+
 
 
 # LAPTOP
 # set keybinds to change monitor
 bindsym $mod+F1 exec --no-startup-id xrandr --output $bm --off --output $fm --primary --auto --output $sm --auto
 bindsym $mod+F2 exec --no-startup-id xrandr --output $bm --auto --primary --output $fm --off --output $sm --off
+
+# keybinds for lockscreen change
+# TODO: uncomment for use
+# bindsym $mod+ctrl+shift+1 exec --no-startup-id feh --bg-scale $wp1
+# bindsym $mod+ctrl+shift+2 exec --no-startup-id feh --bg-scale $wp2
+# bindsym $mod+ctrl+shift+3 exec --no-startup-id feh --bg-scale $wp3
+# bindsym $mod+ctrl+shift+4 exec --no-startup-id feh --bg-scale $wp4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -168,7 +183,7 @@ bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
-# move focused container to workspace
+# move focussed container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
 bindsym $mod+Shift+2 move container to workspace number $ws2
 bindsym $mod+Shift+3 move container to workspace number $ws3
@@ -230,3 +245,15 @@ bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/$(d
 bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
 bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
 bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
+
+# player shortcuts
+# TODO: make sure playerctl installed
+bindsym F7 exec --no-startup-id playerctl previous
+bindsym F8 exec --no-startup-id playerctl play-pause
+bindsym F9 exec --no-startup-id playerctl next
+
+# volume controls
+# TODO: make sure pactl installed
+bindsym $mod+F10 exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym $mod+F11 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym $mod+F12 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
